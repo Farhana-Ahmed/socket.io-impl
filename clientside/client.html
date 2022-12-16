@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="'https://cdnjs.cloudfare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script>
+    let socket = io();
+    console.log(socket)
+    socket.on('connect', (data) => {
+        socket.emit('msg from client', 'message from clietn')
+        socket.on('msg From server', (message) => {
+            console.log(message)
+        })
+    })
+</script>
+<body>
+    <h1>client page</h1>
+</body>
+</html>
